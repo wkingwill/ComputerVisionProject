@@ -30,6 +30,7 @@ def main(args=None):
 	parser.add_argument('--coco_path', help='Path to COCO directory')
 	parser.add_argument('--csv_classes', help='Path to file containing class list (see readme)')
 	parser.add_argument('--csv_val', help='Path to file containing validation annotations (optional, see readme)')
+	parser.add_argument('--img_path', help='Path to file to save val images')
 
 	parser.add_argument('--model', help='Path to model (.pt) file.')
 
@@ -99,7 +100,7 @@ def main(args=None):
 				cv2.rectangle(img, (x1, y1), (x2, y2), color=(0, 0, 255), thickness=2)
 				print(label_name)
 
-			cv2.imshow('img', img)
+			cv2.write(img_path + str(idx) + ".jpeg", img)
 			cv2.waitKey(0)
 
 
